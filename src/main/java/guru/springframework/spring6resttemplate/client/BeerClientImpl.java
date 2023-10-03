@@ -23,6 +23,6 @@ public class BeerClientImpl implements BeerClient {
         RestTemplate restTemplate = restTemplateBuilder.build();
         ResponseEntity<BeerPageImpl> beerPageResponse = restTemplate.getForEntity(V1_BEER, BeerPageImpl.class);
         System.out.println(beerPageResponse);
-        return null;
+        return beerPageResponse.getBody();
     }
 }
