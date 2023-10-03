@@ -17,12 +17,11 @@ import java.util.Map;
 public class BeerClientImpl implements BeerClient {
 
     private final RestTemplateBuilder restTemplateBuilder;
-    private final String BASE_URL = "http://localhost:8080";
     private final String V1_BEER = "/api/v1/beer";
 
     public Page<BeerDTO> listBeers() {
         RestTemplate restTemplate = restTemplateBuilder.build();
-        ResponseEntity<BeerPageImpl> beerPageResponse = restTemplate.getForEntity(BASE_URL + V1_BEER, BeerPageImpl.class);
+        ResponseEntity<BeerPageImpl> beerPageResponse = restTemplate.getForEntity(V1_BEER, BeerPageImpl.class);
         System.out.println(beerPageResponse);
         return null;
     }
