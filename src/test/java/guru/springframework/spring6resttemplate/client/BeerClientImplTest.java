@@ -11,6 +11,11 @@ public class BeerClientImplTest {
     BeerClient beerClient;
     @Test
     void BeerClientImpl_listBeers() {
-        beerClient.listBeers();
+        System.out.println(beerClient.listBeers(null).getTotalElements());
     }
+    @Test
+    void BeerClientImpl_listBeersByName() {
+        System.out.println(beerClient.listBeers("ALE").getTotalElements());
+    }
+
 }

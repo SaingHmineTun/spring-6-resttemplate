@@ -20,9 +20,10 @@ public class BeerClientImpl implements BeerClient {
     private final RestTemplateBuilder restTemplateBuilder;
     private final String V1_BEER = "/api/v1/beer";
 
-    public Page<BeerDTO> listBeers() {
+    public Page<BeerDTO> listBeers(String beerName) {
         RestTemplate restTemplate = restTemplateBuilder.build();
         UriComponentsBuilder componentsBuilder = UriComponentsBuilder.fromPath(V1_BEER);
+        if (beerName != null) componentsBuilder.queryParam("beerName", beerName);
         ResponseEntity<BeerPageImpl> beerPageResponse = restTemplate.getForEntity(componentsBuilder.toUriString(), BeerPageImpl.class);
         System.out.println(beerPageResponse);
         return beerPageResponse.getBody();
