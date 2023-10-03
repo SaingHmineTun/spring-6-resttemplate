@@ -8,4 +8,6 @@ import java.util.UUID;
 public interface BeerClient {
     Page<BeerDTO> listBeers(String beerName);
     BeerDTO getBeerById(UUID id);
+
+    BeerDTO createBear(BeerDTO beerDTO);
 }
